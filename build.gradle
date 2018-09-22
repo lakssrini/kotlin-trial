@@ -1,0 +1,36 @@
+group = "trial"
+version = "1"
+
+buildscript {
+    ext.kotlin_version = "1.2.60"
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'application'
+
+mainClassName = 'demo.TrialKt'
+
+defaultTasks 'run'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile group: 'khttp', name: 'khttp', version: '0.1.0'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "4.1"
+}
